@@ -1,0 +1,346 @@
+[colors]
+FOREGROUND = #D8DEE9
+BACKGROUND = #2E3440
+BLACK = #3B4252
+RED = #BF616A
+GREEN = #A3BE8C
+YELLOW = #EBCB8B
+BLUE = #81A1C1
+MAGENTA = #B48EAD
+CYAN = #88C0D0
+WHITE = #E5E9F0
+ALTBLACK = #4C566A
+ALTRED = #BF616A
+ALTGREEN = #A3BE8C
+ALTYELLOW = #EBCB8B
+ALTBLUE = #81A1C1
+ALTMAGENTA = #B48EAD
+ALTCYAN = #8FBCBB
+ALTWHITE = #ECEFF4
+
+[modules/tmp]
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+
+[bar/bar]
+monitor = 
+monitor-fallback =
+monitor-strict = false
+monitor-exact = true
+override-redirect = false
+bottom = false
+fixed-center = true
+
+wm-restack = bspwm
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+
+background = #2E3440
+foreground = #D8DEE9
+
+
+;background-0 = 
+radius = 0
+
+underline-size = 3
+overline-size = 0
+
+padding = 0
+
+module-margin-left = 0
+module-margin-right = 1
+; JetBrainsMono Nerd Font:style=Medium,Regular
+;font-0 = JetBrainsMonoMedium:pixelsize=10;
+font-0 = JetBrainsMono Nerd font:style=Medium:size=10;
+font-1 = FontAwesome:size=10
+
+modules-left = bspwm 
+modules-right = cpu2 memory battery date
+
+separator =
+spacing = 0
+
+dim-value = 1
+wm-name = bspwm
+locale = 
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.BACKGROUND}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-scale = 1.0
+format-tray-underline = ${colors.RED}
+
+enable-ipc = true
+
+cursor-click = pointer
+cursor-scroll = default
+
+[global/wm]
+; Adjust the _NET_WM_STRUT_PARTIAL top value
+;   Used for top aligned bars
+margin-bottom = 0
+
+; Adjust the _NET_WM_STRUT_PARTIAL bottom value
+;   Used for bottom aligned bars
+margin-top = 0
+
+
+[settings]
+format-foreground = 
+format-underline = ${colors.WHITE}
+format-background = ${colors.BACKGROUND}
+format-padding = 1
+format-overline =
+format-margin = 0
+format-offset =
+screenchange-reload = true
+
+pseudo-transparency = false
+
+
+[module/bspwm]
+type = internal/bspwm
+
+;,,,,,,,,,,,,,,,,
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;               
+
+label-focused = %name%
+label-focused-foreground = ${colors.BACKGROUND}
+label-focused-background = ${colors.BLUE}
+label-focused-underline = ${colors.BLUE}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.BACKGROUND}
+label-occupied-background = ${colors.YELLOW}
+label-occupied-underline = ${colors.YELLOW}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.BACKGROUND}
+label-urgent-background = ${colors.RED}
+label-urgent-underline = ${colors.RED}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.FOREGROUND}
+label-empty-padding = 1
+
+format-underline = ${colors.BACKGROUND}
+format-background = #2E3440
+format-padding =
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+; Separator in between workspaces
+label-separator = 
+
+;---------------------------------------------------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------------------------------------------------
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %d-%m-%Y%
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+; Available tags:
+;   <label> (default)
+format-prefix = " "
+format-prefix-foreground = ${colors.YELLOW}
+format-background = ${colors.BACKGROUND}
+format-foreground = ${colors.FOREGROUND}
+format-underline = ${colors.BLUE}
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font = 1
+label-foreground = #9A32DB
+
+
+;---------------------------------------------------------------------------------------------------------------------------------------
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging>  <label-charging>
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity>  <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging =  %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging =  %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Fully charged
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+
+
+
+[module/memory]
+type = custom/script
+exec = $HOME/.config/bspwm/polybar/bin/i3memory
+label = "%output%"
+click-left = $TERMINAL -e htop &
+interval = 10
+format-prefix = " " 
+format-underline = #3384d0
+format-prefix-foreground = #3384d0
+
+format-foreground = ${colors.FOREGROUND}
+format-background = ${colors.BACKGROUND}
+
+
+;🧠
+
+
+
+
+
+[module/cpu2]
+;https://github.com/jaagr/polybar/wiki/Module:-cpu
+type = internal/cpu
+; Seconds to sleep between updates
+; Default: 1
+interval = 1
+format-foreground = ${colors.FOREGROUND}
+format-background = ${colors.BACKGROUND}
+format-prefix = " "
+format-prefix-foreground = #cd1f3f
+format-underline = #cd1f3f
+
+label-font = 1
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label>
+
+format-padding = 0
+
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = cpu:%percentage%%
+
+;---------------------------------------------------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------------------------------------------------
+
+[module/date1]
+type = custom/script
+exec = $HOME/.config/bspwm/polybar/bin/date.sh
+tail = true
+click-left = kill -USR1 %pid%
+format-prefix = " "
+format-prefix-font = 2
+format-background = ${colors.BACKGROUND}
+format-foreground = ${colors.ALTBLUE}
+format-underline = ${colors.RED}

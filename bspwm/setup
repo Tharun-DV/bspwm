@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mkdir $HOME/bsp
+
+git clone https://github.com/Tharun-DV/Bspwm.git $HOME/Desktop/bsp
+
+cp -r $HOME/Desktop/bsp/bspwm $HOME/.config/
+
+chmod +x autostart.sh bin/* bspwmrc polybar/bin/* sxhkd/*
+
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.cache/nvim
+
+echo "Use Nerd Font"
+echo "Install ripgrep to use telescope for nvim"
+
+mv ~/.config/nvim ~/.config/NVIM.BAK
+
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
