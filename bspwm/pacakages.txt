@@ -1,0 +1,14 @@
+bspwm
+polybar
+rofi
+neovim
+tmux
+build-essemtials
+kitty
+sxhkd
+fonts-font-awesome
+git
+python3-pip
+sddm
+unzip
+feh
