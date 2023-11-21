@@ -14,7 +14,7 @@
 
 
 ## Fonts:
-- JetBrainsMono Nerd Font
+- JetBrainsMono Nerd Font ( Install Regular And Medium Font )
 - Font-awesome
 - NotoMonoNerd Font
 
@@ -26,6 +26,7 @@
 mkdir $HOME/bsp
 git clone https://github.com/Tharun-DV/Bspwm.git $HOME/Desktop/bsp
 cp -r $HOME/Desktop/bsp/bspwm $HOME/.config/
+cd $HOME/.config/bspwm/
 chmod +x autostart.sh bin/* bspwmrc polybar/bin/* sxhkd/*
 ```
 ## setting nvchad config
