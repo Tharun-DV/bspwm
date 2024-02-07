@@ -27,7 +27,7 @@ mkdir $HOME/bsp
 git clone https://github.com/Tharun-DV/Bspwm.git $HOME/Desktop/bsp
 cp -r $HOME/Desktop/bsp/bspwm $HOME/.config/
 cd $HOME/.config/bspwm/
-chmod +x autostart.sh bin/* bspwmrc polybar/bin/* sxhkd/*
+chmod +x $HOME/.config/bspwm/autostart.sh $HOME/.config/bspwm/bin/* $HOME/.config/bspwm/bspwmrc $HOME/.config/bspwm/polybar/bin/* $HOME/.config/bspwm/sxhkd/*
 ```
 ## setting nvchad config
 
